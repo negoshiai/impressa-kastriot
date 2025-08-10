@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresa Edile Kastriot | Costruzioni e Ristrutturazioni a Piacenza</title>
+    <meta name="description" content="Impresa Edile Kastriot è il tuo unico interlocutore a Piacenza per costruzioni, ristrutturazioni ed efficienza energetica. Qualità, esperienza e zero stress.">
+    <meta name="keywords" content="impresa edile piacenza, ristrutturazioni piacenza, costruzioni piacenza, isolamento a cappotto, unico interlocutore, kastriot">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --oxford-blue: #0B2545;
+            --terracotta: #A15E49;
+            --gold-ochre: #D4AF37;
+            --gold-ochre-glow: rgba(212, 175, 55, 0.5);
+            --alabaster-white: #F2F3F4;
+            --light-gray: #e0e0e0;
+            --dark-gray: #1a1a1a;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--oxford-blue);
+            color: var(--alabaster-white);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        .cursor-dot, .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            z-index: 9999;
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gold-ochre);
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border: 2px solid var(--gold-ochre);
+            transition-duration: 0s;
+        }
+        body:hover .cursor-dot, body:hover .cursor-outline {
+            opacity: 1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--alabaster-white);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 4rem; }
+        h3 { font-size: 1.8rem; }
+        h4 { font-size: 1.2rem; }
+
+        p {
+            margin-bottom: 1rem;
+            max-width: 70ch;
+        }
+        
+        a {
+            color: var(--gold-ochre);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        a:hover {
+            color: var(--alabaster-white);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--gold-ochre);
+            color: var(--oxford-blue);
+            box-shadow: 0 0 15px var(--gold-ochre-glow);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--gold-ochre);
+            color: var(--gold-ochre);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--gold-ochre-glow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--alabaster-white);
+            color: var(--alabaster-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--alabaster-white);
+            color: var(--oxford-blue);
+        }
+
+        section {
+            padding: 6rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .section-bg-grid {
+            background-image: 
+                linear-gradient(rgba(11, 37, 69, 0.95), rgba(11, 37, 69, 0.95)),
+                linear-gradient(to right, rgba(242, 243, 244, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(242, 243, 244, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+        }
+        
+        .angled-divider {
+            position: absolute;
+            width: 150%;
+            height: 150px;
+            background-color: var(--oxford-blue);
+            z-index: 2;
+        }
+        .angled-divider.top {
+            top: -75px;
+            left: -25%;
+            transform: rotate(-2deg);
+        }
+        .angled-divider.bottom {
+            bottom: -75px;
+            left: -25%;
+            transform: rotate(-2deg);
+        }
+
+        /* Header */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            background: rgba(11, 37, 69, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all var(--transition-speed) ease;
+        }
+        .main-header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--alabaster-white);
+            text-transform: uppercase;
+        }
+        .logo span {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: var(--light-gray);
+        }
+        .logo-k {
+            color: var(--gold-ochre);
+            font-size: 1.2em;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .main-nav li {
+            margin-left: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--alabaster-white);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold-ochre);
+            transition: width var(--transition-speed) ease;
+        }
+
+        .main-nav a:hover::after, .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 2rem;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger-line {
+            width: 30px;
+            height: 3px;
+            background-color: var(--alabaster-white);
+            margin: 6px 0;
+            transition: all var(--transition-speed) ease;
+        }
+        
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0;
+            background: linear-gradient(rgba(11, 37, 69, 0.7), rgba(11, 37, 69, 0.9)), url('https://images.unsplash.com/photo-1581362716634-274a951918a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            color: var(--alabaster-white);
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin: 1.5rem auto 2.5rem;
+            color: var(--light-gray);
+            max-width: 60ch;
+        }
+
+        /* Services Section */
+        #servizi {
+            background-color: var(--alabaster-white);
+        }
+        #servizi h2 { color: var(--oxford-blue); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .service-card {
+            background: var(--oxford-blue);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(242, 243, 244, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            color: var(--gold-ochre);
+        }
+        .service-card h3 {
+            color: var(--alabaster-white);
+            margin-bottom: 1rem;
+        }
+        .service-card p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* About Us Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+        .usp-highlight {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--gold-ochre);
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 600;
+        }
+        .about-image-wrapper {
+            position: relative;
+        }
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+        }
+        .about-image-bg {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--terracotta);
+            border-radius: 8px;
+            z-index: 0;
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+        }
+
+        /* USP Section */
+        #usp {
+            background-color: var(--oxford-blue);
+        }
+        #usp h2 {
+             color: var(--alabaster-white);
+        }
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+        .usp-item .icon {
+            font-size: 3rem;
+            color: var(--gold-ochre);
+            margin-bottom: 1rem;
+        }
+        .usp-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        .usp-item p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Portfolio Section */
+        #realizzazioni {
+            background-color: var(--alabaster-white);
+        }
+        #realizzazioni h2 { color: var(--oxford-blue); }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            aspect-ratio: 4 / 3;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(11, 37, 69, 0.9), rgba(161, 94, 73, 0.3));
+            color: var(--alabaster-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-overlay h4 {
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .portfolio-item:hover .portfolio-overlay h4 {
+            transform: translateY(0);
+        }
+
+        /* Energy Efficiency Section */
+        .energy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .energy-image {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .energy-text h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        #contatti {
+            background-color: var(--dark-gray);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            background: var(--oxford-blue);
+            padding: 4rem;
+            border-radius: 8px;
+        }
+        .contact-form h3, .contact-info h3 {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .contact-form h3::after, .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold-ochre);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--dark-gray);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: var(--alabaster-white);
+            font-family: var(--font-body);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-ochre);
+        }
+        .contact-info ul {
+            list-style: none;
+        }
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .contact-info .icon {
+            color: var(--gold-ochre);
+            margin-right: 1.5rem;
+            font-size: 1.5rem;
+            width: 24px;
+            text-align: center;
+        }
+        .contact-info a {
+            color: var(--alabaster-white);
+        }
+        .contact-info a:hover {
+            color: var(--gold-ochre);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #06182c;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--alabaster-white);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .social-links {
+            margin: 2rem 0;
+        }
+        .social-links a {
+            margin: 0 1rem;
+            color: var(--alabaster-white);
+            font-size: 1.5rem;
+        }
+        .social-links a:hover {
+            color: var(--gold-ochre);
+        }
+        .copyright {
+            color: #aaa;
+            margin-top: 2rem;
+        }
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Scroll Animations */
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        [data-aos].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            section { padding: 4rem 0; }
+            
+            .about-content, .energy-content { grid-template-columns: 1fr; }
+            .about-image-wrapper { margin-top: 3rem; }
+            .energy-image { order: -1; margin-bottom: 2rem; }
+
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--oxford-blue);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+            .main-nav.menu-open {
+                transform: translateX(0);
+            }
+            .main-nav ul {
+                flex-direction: column;
+            }
+            .main-nav li {
+                margin: 1.5rem 0;
+            }
+            .main-nav a {
+                font-size: 1.5rem;
+            }
+            .nav-cta { display: none; }
+            
+            .hamburger {
+                display: block;
+            }
+            .hamburger.is-active .hamburger-line:nth-child(1) {
+                transform: rotate(-45deg) translate(-8px, 7px);
+            }
+            .hamburger.is-active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.is-active .hamburger-line:nth-child(3) {
+                transform: rotate(45deg) translate(-8px, -7px);
+            }
+
+            h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.1rem; }
+
+            .usp-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; gap: 1rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <span>Impresa Edile</span>
+                <span class="logo-k">K</span>astriot
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
+                    <li><a href="#servizi" class="nav-link">Servizi</a></li>
+                    <li><a href="#realizzazioni" class="nav-link">Realizzazioni</a></li>
+                    <li><a href="#contatti" class="nav-link">Contatti</a></li>
+                </ul>
+            </nav>
+            <a href="#contatti" class="btn btn-primary nav-cta">Richiedi Preventivo</a>
+            <div class="hamburger" id="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="hero-content" data-aos>
+                <h1>Costruiamo valore,<br>ristrutturiamo i tuoi sogni.</h1>
+                <p>Il tuo unico interlocutore a Piacenza per costruzioni e ristrutturazioni, dal progetto alla consegna.</p>
+                <a href="#contatti" class="btn btn-primary">Richiedi un Preventivo Gratuito</a>
+            </div>
+        </section>
+
+        <section id="servizi" class="section-bg-grid">
+            <div class="container">
+                <h2 data-aos>I Nostri Servizi</h2>
+                <div class="services-grid">
+                    <div class="service-card" data-aos>
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                        <h3>Ristrutturazioni Complete</h3>
+                        <p>Trasformiamo i tuoi spazi, interni ed esterni, con soluzioni chiavi in mano di alta qualità.</p>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="100">
+                         <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" /></svg>
+                        <h3>Nuove Costruzioni</h3>
+                        <p>Realizziamo edifici residenziali e commerciali solidi, moderni e costruiti per durare nel tempo.</p>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="200">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l4.5-3.562A12.025 12.025 0 0012 21.056a12.025 12.025 0 004.5-4.142l4.5 3.562a12.02 12.02 0 00-2.382-8.461z" /></svg>
+                        <h3>Isolamento a Cappotto</h3>
+                        <p>Miglioriamo l'efficienza energetica della tua casa, garantendo comfort e un significativo risparmio in bolletta.</p>
+                    </div>
+                    <div class="service-card" data-aos>
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                        <h3>Tetti e Coperture</h3>
+                        <p>Interventi di rifacimento e manutenzione tetti per proteggere il tuo immobile dagli agenti atmosferici.</p>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="100">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                        <h3>Impiantistica</h3>
+                        <p>Progettazione e installazione di impianti elettrici e idraulici certificati e a norma di legge.</p>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="200">
+                        <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+                        <h3>Finiture e Cartongesso</h3>
+                        <p>Cura dei dettagli con posa di pavimenti, tinteggiature e soluzioni innovative in cartongesso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chi-siamo">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text" data-aos>
+                        <h2>Un Progetto. Un Responsabile. <br>Zero Stress.</h2>
+                        <span class="usp-highlight">La solidità della nostra esperienza, la base per il tuo futuro.</span>
+                        <p>Impresa Edile Kastriot nasce dalla passione per l'edilizia di qualità e dalla volontà di offrire un servizio completo che semplifichi la vita dei nostri clienti. Da anni operiamo a Piacenza e provincia, gestendo ogni fase del progetto, dalla progettazione alla burocrazia, fino alla consegna finale.</p>
+                        <p>Il nostro più grande valore è essere il tuo <strong>unico interlocutore</strong>. Questo significa coordinamento perfetto, tempi certi e la serenità di affidare i tuoi sogni a un unico team di professionisti esperti. La nostra missione è costruire e ristrutturare non solo edifici, ma relazioni di fiducia destinate a durare.</p>
+                        <a href="#contatti" class="btn btn-secondary" style="margin-top: 1rem;">Parla con noi del tuo progetto</a>
+                    </div>
+                    <div class="about-image-wrapper" data-aos data-aos-delay="200">
+                        <div class="about-image-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Team di professionisti al lavoro" class="about-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="usp" style="background-color: #081f3a;">
+             <div class="container">
+                 <h2 data-aos>Perché Sceglierci</h2>
+                 <div class="usp-grid">
+                     <div class="usp-item" data-aos>
+                         <div class="icon">✓</div>
+                         <h3>Qualità Certificata</h3>
+                         <p>Utilizziamo solo materiali di prima scelta e le migliori tecniche costruttive per garantire risultati eccellenti e duraturi.</p>
+                     </div>
+                     <div class="usp-item" data-aos data-aos-delay="150">
+                          <div class="icon">✓</div>
+                         <h3>Esperienza Pluriennale</h3>
+                         <p>Il nostro team vanta anni di esperienza sul campo, affrontando con successo ogni tipo di sfida costruttiva.</p>
+                     </div>
+                     <div class="usp-item" data-aos data-aos-delay="300">
+                          <div class="icon">✓</div>
+                         <h3>Puntualità e Trasparenza</h3>
+                         <p>Rispettiamo le scadenze concordate e forniamo preventivi chiari e dettagliati, senza sorprese.</p>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <section id="realizzazioni" class="section-bg-grid" style="background-color: var(--alabaster-white);">
+             <div class="angled-divider top" style="background-color: #081f3a;"></div>
+            <div class="container">
+                <h2 data-aos>Le Nostre Realizzazioni</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-aos>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Esterno di una villa moderna">
+                        <div class="portfolio-overlay">
+                            <h4>Esterni e Nuove Costruzioni</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos data-aos-delay="150">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Interno di un salotto ristrutturato">
+                         <div class="portfolio-overlay">
+                            <h4>Ristrutturazione Interni</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1582495371482-1e5f8a0963b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Facciata con cappotto termico">
+                         <div class="portfolio-overlay">
+                            <h4>Efficienza Energetica</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos>
+                        <img src="https://images.unsplash.com/photo-1604709177595-ee9c2580e9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Bagno moderno di design">
+                         <div class="portfolio-overlay">
+                            <h4>Rifacimento Bagni</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos data-aos-delay="150">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Struttura in costruzione">
+                         <div class="portfolio-overlay">
+                            <h4>Edifici Commerciali</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-aos data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Dettagli di finitura in un appartamento">
+                         <div class="portfolio-overlay">
+                            <h4>Finiture di Pregio</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="angled-divider bottom" style="background-color: var(--alabaster-white);"></div>
+        </section>
+        
+        <section id="energy">
+            <div class="container">
+                <div class="energy-content">
+                    <div class="energy-image-wrapper" data-aos>
+                        <img src="https://images.unsplash.com/photo-1621899121973-51883c44c312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Casa con isolamento termico" class="energy-image">
+                    </div>
+                    <div class="energy-text" data-aos data-aos-delay="150">
+                        <h2>Efficienza Energetica: Investi nel Futuro.</h2>
+                        <p>L'<strong>isolamento termico a cappotto</strong> è una delle soluzioni più efficaci per migliorare il comfort abitativo e ridurre drasticamente i costi energetici. È un investimento intelligente che aumenta il valore del tuo immobile e contribuisce alla salvaguardia dell'ambiente.</p>
+                         <ul style="list-style: none; padding-left: 0; margin-top:1.5rem;">
+                            <li style="display:flex; align-items:flex-start; margin-bottom: 1rem;"><span style="color:var(--gold-ochre); margin-right:1rem; font-weight:bold;">✓</span> Risparmio fino al 40% sulle bollette di riscaldamento e raffrescamento.</li>
+                            <li style="display:flex; align-items:flex-start; margin-bottom: 1rem;"><span style="color:var(--gold-ochre); margin-right:1rem; font-weight:bold;">✓</span> Aumento della classe energetica e del valore di mercato della proprietà.</li>
+                            <li style="display:flex; align-items:flex-start; margin-bottom: 1rem;"><span style="color:var(--gold-ochre); margin-right:1rem; font-weight:bold;">✓</span> Accesso a bonus e incentivi fiscali statali.</li>
+                         </ul>
+                         <a href="#contatti" class="btn btn-secondary" style="margin-top: 1.5rem;">Scopri i Vantaggi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatti">
+            <div class="container">
+                <div class="contact-wrapper" data-aos>
+                    <div class="contact-form">
+                        <h3>Contattaci per un Preventivo Gratuito</h3>
+                        <p>Compila il modulo o chiamaci direttamente. Saremo felici di discutere il tuo progetto senza alcun impegno.</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="La tua email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" placeholder="Il tuo telefono (opzionale)">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="5" placeholder="Descrivi brevemente il tuo progetto" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Invia Richiesta</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>I Nostri Recapiti</h3>
+                        <ul>
+                            <li>
+                               <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                </span>
+                                <span>Via Roma, 123<br>29121 Piacenza (PC)</span>
+                            </li>
+                             <li>
+                               <span class="icon">
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                </span>
+                                <a href="tel:+390123456789">+39 0123 456 789</a>
+                            </li>
+                            <li>
+                               <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                </span>
+                                <a href="mailto:info@impresaedilekastriot.it">info@impresaedilekastriot.it</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <a href="#home" class="footer-logo">
+                <span class="logo-k">K</span>astriot
+            </a>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#realizzazioni">Realizzazioni</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.979v16h4.979v-8.399c0-2.022.405-4.041 2.982-4.041 2.533 0 2.548 2.378 2.548 4.167v8.273h4.978v-9.04c0-4.307-1.125-7.665-6.014-7.665-2.549 0-4.223 1.34-4.979 2.624v-2.299h-4.978z"/></svg></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Impresa Edile Kastriot. Tutti i diritti riservati.</p>
+                <p>P.IVA 01234567890</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Custom Cursor ---
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            let mouseX = 0, mouseY = 0;
+            let dotX = 0, dotY = 0;
+            let outlineX = 0, outlineY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animateCursor() {
+                dotX += (mouseX - dotX) * 0.7;
+                dotY += (mouseY - dotY) * 0.7;
+                outlineX += (mouseX - outlineX) * 0.1;
+                outlineY += (mouseY - outlineY) * 0.1;
+
+                cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px)`;
+                
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            
+            document.querySelectorAll('a, button, .service-card, .portfolio-item').forEach(el => {
+                el.addEventListener('mouseover', () => {
+                    cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) scale(1.3)`;
+                    cursorOutline.style.borderColor = 'var(--terracotta)';
+                });
+                el.addEventListener('mouseout', () => {
+                    cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) scale(1)`;
+                    cursorOutline.style.borderColor = 'var(--gold-ochre)';
+                });
+            });
+
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile Menu ---
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('main-nav');
+            const body = document.body;
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active');
+                nav.classList.toggle('menu-open');
+                body.classList.toggle('menu-open');
+            });
+
+            // --- Smooth Scrolling & Active Nav Link ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                         // Close mobile menu on click
+                        if (nav.classList.contains('menu-open')) {
+                            hamburger.classList.remove('is-active');
+                            nav.classList.remove('menu-open');
+                            body.classList.remove('menu-open');
+                        }
+                        
+                        // Scroll to section
+                        let headerOffset = document.getElementById('main-header').offsetHeight;
+                        let elementPosition = targetSection.getBoundingClientRect().top;
+                        let offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      
+                        window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                        });
+                    }
+                });
+            });
+            
+            // Active nav link on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - header.offsetHeight - 50;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Scroll Animations (Intersection Observer) ---
+            const animatedElements = document.querySelectorAll('[data-aos]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
